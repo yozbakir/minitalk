@@ -19,3 +19,4 @@ int main(int argc, char **argv)
     client(pid, str);
     return (0);
 }
+// degisiklik var mi onu denemek için yapıyorum
