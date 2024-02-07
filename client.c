@@ -1,24 +1,14 @@
-#include <signal.h>
+#include <stdio.h>
 #include <unistd.h>
+#include <signal.h>
 
-void    client(int pid, char *str)
+void client(int pid, char *str)
+{}
+
+int main(int argc, char *argv[])
 {
-    int i;
-    int j;
-
-    i = 0;
-    while (str[i])
-    {
-        j = 0;
-        while (j < 8)
-        {
-            if (str[i] & (1 << j))
-                kill(pid, SIGUSR1);
-            else
-                kill(pid, SIGUSR2);
-            j++;
-            usleep(100);
-        }
-        i++;
-    }
+    int pid = getpid();
+    printf("CLIENT PID: [%d]\n", pid);
+    client(pid, argv[1]);
+    return 0;
 }
